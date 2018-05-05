@@ -1,10 +1,10 @@
-import * as ActionsTypes from "../../../constants/ActionsTypes"
-import * as MutationsTypes from "../../../constants/MutationsTypes"
 import PersonAPI from "../../../api/person/PersonAPI"
 
 export const actions = {
-    async [ActionsTypes.PERSON_LIST]({ commit }) {
+    async list({ commit }) {
+        commit("fetching", true)
         PersonAPI.list()
-            .then(list => commit(MutationsTypes.PERSON_SET_LIST, list))
+            .then(list => commit("list", list))
+            .then(() => commit("fetching", false))
     }
 }

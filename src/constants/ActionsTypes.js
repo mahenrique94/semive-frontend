@@ -1,1 +1,0 @@
-export const PERSON_LIST = "personList"

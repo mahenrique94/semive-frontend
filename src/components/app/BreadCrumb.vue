@@ -1,8 +1,9 @@
 <template>
     <v-card>
         <v-card-title class="pa-1">
-            <v-breadcrumbs divider="/">
-                <v-breadcrumbs-item v-for="item in items" :key="item">{{ $t(item) }}</v-breadcrumbs-item>
+            <v-breadcrumbs divider="/" large>
+                <v-icon slot="divider">chevron_right</v-icon>
+                <v-breadcrumbs-item :to="$t(`link.${item}`)" v-for="item in items" :key="item">{{ $t(`menu.${item}`) }}</v-breadcrumbs-item>
             </v-breadcrumbs>
             <v-spacer></v-spacer>
         </v-card-title>

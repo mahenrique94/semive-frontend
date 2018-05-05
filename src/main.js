@@ -4,6 +4,7 @@ import store from "./store"
 
 import i18n from "./translate"
 import "./vuetify"
+import "./validate"
 
 import App from "./components/app/App.vue"
 

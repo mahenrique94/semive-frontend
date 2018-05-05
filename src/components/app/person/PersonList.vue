@@ -1,45 +1,44 @@
 <template>
     <div>
-        <BreadCrumb :items="['menu.register', 'menu.person']"/>
-        <v-btn bottom color="pink" dark fab fixed right to="/cadastro/pessoas/form"><v-icon>add</v-icon></v-btn>
-        <Table :headers="headers" :list="list" search/>
+        <BreadCrumb :items="['person']"/>
+        <Table :columns="['name', 'fullSex', 'dateBornBrazilian']" component="person" :fetching="fetching" :headers="headers" :list="list" :remove="remove" search/>
+        <New component="person"/>
     </div>
 </template>
 
 <script>
-    import * as ActionsTypes from "../../../constants/ActionsTypes"
-    import * as GettersTypes from "../../../constants/GettersTypes"
     import { mapGetters } from "vuex"
 
     import BreadCrumb from "../BreadCrumb"
+    import New from "../New"
     import Table from "../table/Table"
 
     export default {
         components : {
             BreadCrumb,
+            New,
             Table
         },
         computed : {
             ...mapGetters({
-                list : GettersTypes.PERSON_GET_LIST
+                fetching : "person/fetching",
+                list : "person/list"
             })
         },
         created() {
-            this.$store.dispatch(ActionsTypes.PERSON_LIST)
+            this.$store.dispatch("person/list")
         },
         data() {
             return {
                 headers : [
                     { text : this.$t("label.name"), value : "name" },
-                    { sortable: false, text : this.$t("label.date.born"), value : "dateBorn" },
-                    { sortable: false, text: "", value: "" }
+                    { sortable : false, text : this.$t("label.sex"), value : "sex" },
+                    { sortable : false, text : this.$t("label.date.born"), value : "dateBorn" },
+                    { sortable : false, text : "", value : "" }
                 ]
             }
         },
         methods : {
-            edit(id) {
-                console.log(id)
-            },
             remove(id) {
                 console.log(id)
             }
@@ -49,7 +48,4 @@
 </script>
 
 <style scoped>
-    .btn__content .icon {
-        display: flex;
-    }
 </style>

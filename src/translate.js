@@ -1,28 +1,33 @@
 import Vue from "vue"
 import VueI18n from "vue-i18n"
 
+import BrowserHelper from "./helpers/BrowserHelper";
+
 Vue.use(VueI18n)
 
-const language = navigator.languages.length ? navigator.languages[0] : navigator.language;
-const locale = language.split("-")[0];
 const messages = {
-    locale : "pt",
     pt : {
         describe : {
             app : "O Semive é um sistema simples para controle de clientes, fornecedores, produtos e pedidos."
-        },
-        menu : {
-            dashboard : "Dashboard",
-            orders : "Pedidos",
-            person : "Pessoas",
-            products : "Produtos",
-            register : "Cadastro"
         },
         label : {
             date : {
                 born : "Data de Nascimento"
             },
-            name : "Nome"
+            name : "Nome",
+            sex : "Sexo"
+        },
+        link : {
+            dashboard : "/",
+            orders : "/pedidos",
+            person : "/pessoas",
+            products : "/produtos"
+        },
+        menu : {
+            dashboard : "Dashboard",
+            orders : "Pedidos",
+            person : "Pessoas",
+            products : "Produtos"
         },
         message : {
             app : {
@@ -42,11 +47,16 @@ const messages = {
         title : {
             app : "Semive",
             welcome : "Bem vindo ao Semive"
+        },
+        validator : {
+            form : {
+                required : "É obrigatório"
+            }
         }
     }
 }
 
 export default new VueI18n({
-    locale,
+    locale : BrowserHelper.getLocale(),
     messages
 })

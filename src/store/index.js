@@ -8,7 +8,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules : {
-        person
+        person : {
+            actions : person.actions,
+            namespaced : true,
+            getters : person.getters,
+            mutations : person.mutations,
+            state : person.state,
+        }
     },
     plugins : [ createLogger() ]
 })

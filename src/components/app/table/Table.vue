@@ -12,6 +12,7 @@
             class="elevation-1"
             :headers="headers"
             :hide-actions="checkList()"
+            :loading="fetching"
             :items="list"
             :no-data-text="$t('message.table.empty')"
             :no-results-text="$t('message.table.noResult')"
@@ -19,10 +20,9 @@
             :search="filter"
         >
             <template slot="items" slot-scope="props">
-                <td>{{ props.item.name }}</td>
-                <td>{{ props.item.dateBorn_brazilian }}</td>
+                <td v-for="column in columns" :key="column">{{ props.item[column] }}</td>
                 <td class="justify-center layout px-0">
-                    <v-btn class="mx-0" @click="edit(props.item.id)" icon>
+                    <v-btn class="mx-0" icon :to="`${$t(`link.${component}`)}/${props.item.id}`">
                         <v-icon color="teal">edit</v-icon>
                     </v-btn>
                     <v-btn class="mx-0" @click="remove(props.item.id)" icon>
@@ -53,7 +53,15 @@
         },
         name: "Table",
         props : {
-            search : {
+            columns : {
+                required : true,
+                type : Array
+            },
+            component : {
+                required : true,
+                type : String
+            },
+            fetching : {
                 default : () => false,
                 type : Boolean
             },
@@ -64,6 +72,14 @@
             list : {
                 required : true,
                 type : Array
+            },
+            remove : {
+                required : true,
+                type : Function
+            },
+            search : {
+                default : () => false,
+                type : Boolean
             }
         }
     }

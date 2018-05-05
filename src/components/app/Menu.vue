@@ -7,7 +7,7 @@
         </v-toolbar>
         <v-navigation-drawer app fixed v-model="show">
             <v-list dense>
-                <v-list-tile @click="toggle" to="/">
+                <v-list-tile @click="toggle" :to="$t('link.dashboard')">
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
@@ -15,7 +15,7 @@
                         <v-list-tile-title>{{ $t("menu.dashboard") }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="toggle" to="/pedidos">
+                <v-list-tile @click="toggle" :to="$t('link.orders')">
                     <v-list-tile-action>
                         <v-icon>note</v-icon>
                     </v-list-tile-action>
@@ -23,7 +23,7 @@
                         <v-list-tile-title>{{ $t("menu.orders") }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="toggle" to="/cadastro/pessoas">
+                <v-list-tile @click="toggle" :to="$t('link.person')">
                     <v-list-tile-action>
                         <v-icon>group</v-icon>
                     </v-list-tile-action>
@@ -31,7 +31,7 @@
                         <v-list-tile-title>{{ $t("menu.person") }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="toggle" to="/cadastro/produtos">
+                <v-list-tile @click="toggle" :to="$t('link.products')">
                     <v-list-tile-action>
                         <v-icon>storage</v-icon>
                     </v-list-tile-action>
