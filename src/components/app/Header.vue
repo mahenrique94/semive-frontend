@@ -6,10 +6,10 @@
     import Menu from "./Menu"
 
     export default {
-        name: "Header",
         components : {
             Menu
-        }
+        },
+        name: "Header"
     }
 </script>
 

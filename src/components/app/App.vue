@@ -3,7 +3,7 @@
         <v-app>
             <Header/>
             <v-content>
-                <v-container class="pa-5" fluid>
+                <v-container class="pa-4" fluid>
                     <v-layout row wrap>
                         <v-flex xs12 sm12 md12 lg12>
                             <router-view/>
@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import Header from "./Header"
+    import Header from "./Header"
 
-export default {
-    name: 'app',
-    components: {
-        Header
+    export default {
+        components: {
+            Header
+        },
+        name: 'app'
     }
-}
 </script>
 
 <style>

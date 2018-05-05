@@ -1,3 +1,5 @@
+import * as GettersTypes from "../../../constants/GettersTypes"
+
 export const getters = {
-    getList : state => state.list
+    [GettersTypes.PERSON_GET_LIST] : state => state.list
 }

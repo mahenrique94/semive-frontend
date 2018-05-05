@@ -3,6 +3,8 @@ import VueI18n from "vue-i18n"
 
 Vue.use(VueI18n)
 
+const language = navigator.languages.length ? navigator.languages[0] : navigator.language;
+const locale = language.split("-")[0];
 const messages = {
     locale : "pt",
     pt : {
@@ -15,6 +17,12 @@ const messages = {
             person : "Pessoas",
             products : "Produtos",
             register : "Cadastro"
+        },
+        label : {
+            date : {
+                born : "Data de Nascimento"
+            },
+            name : "Nome"
         },
         message : {
             app : {
@@ -39,6 +47,6 @@ const messages = {
 }
 
 export default new VueI18n({
-    locale : "pt",
+    locale,
     messages
 })

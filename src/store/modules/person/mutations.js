@@ -1,5 +1,7 @@
+import * as MutationsTypes from "../../../constants/MutationsTypes"
+
 export const mutations = {
-    setList : (state, list) => {
+    [MutationsTypes.PERSON_SET_LIST] : (state, list) => {
         state.list = list
     }
 }

@@ -1,4 +1,4 @@
-import { http } from "../config"
+import { http } from "../"
 
 import APIHelper from "../../helpers/APIHelper"
 import DateHelper from "../../helpers/DateHelper"
