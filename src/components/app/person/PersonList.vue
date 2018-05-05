@@ -3,14 +3,14 @@
         <v-card>
             <v-card-title>
                 <v-breadcrumbs divider="/">
-                    <v-breadcrumbs-item v-lang.menu.register/>
-                    <v-breadcrumbs-item v-lang.menu.person/>
+                    <v-breadcrumbs-item>{{ $t("menu.register") }}</v-breadcrumbs-item>
+                    <v-breadcrumbs-item>{{ $t("menu.person") }}</v-breadcrumbs-item>
                 </v-breadcrumbs>
                 <v-spacer></v-spacer>
                 <v-text-field
                         v-model="filter"
                         append-icon="search"
-                        label="Digite aqui para filtrar"
+                        :label="$t('placeholder.search')"
                         single-line
                         hide-details
                 ></v-text-field>
@@ -18,15 +18,16 @@
             <v-data-table
                     class="elevation-1"
                     :headers="headers"
+                    :hide-actions="checkList()"
                     :items="getList"
-                    no-data-text="A tabela está vázia"
-                    no-results-text="Nenhum registro encontrado"
-                    rows-per-page-text="Linhas por página"
+                    :no-data-text="$t('message.table.empty')"
+                    :no-results-text="$t('message.table.noResult')"
+                    :rows-per-page-text="$t('message.table.linePerPage')"
                     :search="filter"
             >
                 <template slot="items" slot-scope="props">
                     <td>{{ props.item.name }}</td>
-                    <td>{{ props.item.dateBorn }}</td>
+                    <td>{{ props.item.dateBorn_brazilian }}</td>
                     <td class="justify-center layout px-0">
                         <v-btn icon class="mx-0" @click="edit(props.item.id)">
                             <v-icon color="teal">edit</v-icon>
@@ -37,7 +38,7 @@
                     </td>
                 </template>
                 <template slot="pageText" slot-scope="props">
-                    Linhas {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
+                    {{ $t("message.table.lines") }} {{ props.pageStart }} - {{ props.pageStop }} {{ $t("message.table.of") }} {{ props.itemsLength }}
                 </template>
             </v-data-table>
         </v-card>
@@ -57,6 +58,7 @@
 
 <script>
     import { mapGetters } from "vuex"
+    import ArrayHelper from "../../../helpers/ArrayHelper"
 
     export default {
         name: "PersonList",
@@ -77,6 +79,9 @@
             this.$store.dispatch("list")
         },
         methods : {
+            checkList() {
+                return ArrayHelper.isEmpty(this.getList)
+            },
             remove(id) {
                 console.log(id)
             },
