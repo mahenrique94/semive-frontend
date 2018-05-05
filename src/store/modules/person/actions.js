@@ -1,8 +1,8 @@
-import PeopleAPI from "../../../api/people/PeopleAPI"
+import PersonAPI from "../../../api/person/PersonAPI"
 
 export const actions = {
     list({ commit }) {
-        PeopleAPI.list()
+        PersonAPI.list()
             .then(list => commit("setList", list))
     }
 }

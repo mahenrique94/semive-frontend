@@ -10,7 +10,7 @@ Vue.use(VueMultiLanguage, {
         menu : {
             dashboard : "Dashboard",
                 orders : "Pedidos",
-                people : "Pessoas",
+                person : "Pessoas",
                 products : "Produtos",
                 register : "Cadastro"
         },

@@ -2,13 +2,13 @@ import Vue from "vue"
 import Vuex from "vuex"
 import createLogger from 'vuex/dist/logger'
 
-import people from "./modules/people"
+import person from "./modules/person"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules : {
-        people
+        person
     },
     plugins : [ createLogger() ]
 })

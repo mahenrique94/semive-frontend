@@ -7,7 +7,7 @@
         </v-toolbar>
         <v-navigation-drawer fixed v-model="show" app>
             <v-list dense>
-                <v-list-tile @click="navigate('/')">
+                <v-list-tile to="/" @click="toggle">
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
@@ -15,7 +15,7 @@
                         <v-list-tile-title v-lang.menu.dashboard/>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="navigate('/pedidos')">
+                <v-list-tile to="/pedidos" @click="toggle">
                     <v-list-tile-action>
                         <v-icon>note</v-icon>
                     </v-list-tile-action>
@@ -23,15 +23,15 @@
                         <v-list-tile-title v-lang.menu.orders/>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="navigate('/cadastro/pessoas')">
+                <v-list-tile to="/cadastro/pessoas" @click="toggle">
                     <v-list-tile-action>
                         <v-icon>group</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                        <v-list-tile-title v-lang.menu.people/>
+                        <v-list-tile-title v-lang.menu.person/>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="navigate('/cadastro/produtos')">
+                <v-list-tile to="/cadastro/produtos" @click="toggle">
                     <v-list-tile-action>
                         <v-icon>storage</v-icon>
                     </v-list-tile-action>
@@ -47,9 +47,11 @@
 <script>
     export default {
         name: "Menu",
-        data : () => ({
-            show : false
-        }),
+        data() {
+            return {
+                show : false
+            }
+        },
         methods: {
             navigate(path) {
                 this.$router.replace(path)
