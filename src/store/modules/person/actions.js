@@ -6,5 +6,9 @@ export const actions = {
         PersonAPI.list()
             .then(list => commit("list", list))
             .then(() => commit("fetching", false))
+    },
+    async save({ commit }, person) {
+        PersonAPI.save(person)
+            .then(data => commit("edit", data))
     }
 }

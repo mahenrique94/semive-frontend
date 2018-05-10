@@ -1,4 +1,5 @@
 export const state = {
     fetching : false,
-    list : []
+    list : [],
+    object : {}
 }

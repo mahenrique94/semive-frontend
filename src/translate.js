@@ -11,20 +11,28 @@ const messages = {
             app : "O Semive é um sistema simples para controle de clientes, fornecedores, produtos e pedidos."
         },
         label : {
+            active : "Ativo",
+            all : "Todos",
             date : {
                 born : "Data de Nascimento"
             },
+            female : "Feminino",
+            male : "Masculino",
             name : "Nome",
             sex : "Sexo"
         },
         link : {
             dashboard : "/",
+            form : "form",
+            list : "list",
             orders : "/pedidos",
             person : "/pessoas",
             products : "/produtos"
         },
         menu : {
             dashboard : "Dashboard",
+            form : "Formulário",
+            list : "Lista",
             orders : "Pedidos",
             person : "Pessoas",
             products : "Produtos"

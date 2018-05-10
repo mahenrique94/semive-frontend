@@ -10,12 +10,14 @@
         </v-container>
         <v-data-table
             class="elevation-1"
+            disable-initial-sort
             :headers="headers"
             :hide-actions="checkList()"
             :loading="fetching"
             :items="list"
             :no-data-text="$t('message.table.empty')"
             :no-results-text="$t('message.table.noResult')"
+            :rows-per-page-items="[10, 25, 50, 100, {'text' : $t('label.all'), 'value' : -1}]"
             :rows-per-page-text="$t('message.table.linePerPage')"
             :search="filter"
         >

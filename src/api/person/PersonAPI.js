@@ -2,7 +2,6 @@ import { http } from "../"
 import Person from "../../models/Person"
 
 import APIHelper from "../../helpers/APIHelper"
-import DateHelper from "../../helpers/DateHelper"
 
 export default class PersonAPI {
 
@@ -14,6 +13,12 @@ export default class PersonAPI {
                 data.forEach(item => list.push(Person.new(item)))
                 return list
             })
+    }
+
+    static async save(person) {
+        person.dateBorn = person.dateBornBrazilian
+        return await http.post("person", JSON.stringify(person))
+            .then(APIHelper.handleSuccess)
     }
 
 }

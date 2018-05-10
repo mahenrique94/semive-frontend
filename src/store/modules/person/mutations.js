@@ -1,4 +1,7 @@
 export const mutations = {
+    edit : (state, object) => {
+        state.object = object
+    },
     fetching : (state, fetching) => {
         state.fetching = fetching
     },
