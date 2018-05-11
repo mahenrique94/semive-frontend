@@ -7,11 +7,12 @@ import PersonList from "./components/app/person/PersonList"
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+export const router = new VueRouter({
     mode : "history",
     routes : [
-        { path : "/", component : Dashboard },
-        { path : "/pessoas", component : PersonList },
-        { path : "/pessoas/form", component : PersonForm }
+        { path : "/", component : Dashboard, name : "Dashboard" },
+        { path : "/pessoas", component : PersonList, name : "PersonList" },
+        { path : "/pessoas/form", component : PersonForm, name : "PersonForm" },
+        { path : "/pessoas/:id", component : PersonForm, name : "PersonEdit" }
     ]
 })

@@ -15,6 +15,10 @@ export default class PersonAPI {
             })
     }
 
+    static async remove(id) {
+        return await http.delete(`person/${id}`);
+    }
+
     static async save(person) {
         person.dateBorn = person.dateBornBrazilian
         return await http.post("person", JSON.stringify(person))

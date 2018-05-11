@@ -41,7 +41,7 @@
         },
         methods : {
             remove(id) {
-                console.log(id)
+                this.$store.dispatch("person/remove", id)
             }
         },
         name: "PersonList"

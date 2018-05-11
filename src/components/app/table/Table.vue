@@ -27,9 +27,7 @@
                     <v-btn class="mx-0" icon :to="`${$t(`link.${component}`)}/${props.item.id}`">
                         <v-icon color="teal">edit</v-icon>
                     </v-btn>
-                    <v-btn class="mx-0" @click="remove(props.item.id)" icon>
-                        <v-icon color="pink">delete</v-icon>
-                    </v-btn>
+                    <Confirm color="pink" icon="delete" :onConfirm="remove" :parameters="[ props.item.id ]"/>
                 </td>
             </template>
             <template slot="pageText" slot-scope="props">
@@ -40,9 +38,14 @@
 </template>
 
 <script>
+    import Confirm from "../Confirm"
+
     import ArrayHelper from "../../../helpers/ArrayHelper"
 
     export default {
+        components : {
+            Confirm
+        },
         data() {
             return {
                 filter : ""

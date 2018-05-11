@@ -29,7 +29,7 @@
                     data-vv-name="person.dateBorn"
                     :error-messages="errors.collect('person.dateBorn')"
                     :label="$t('label.date.born')"
-                    readonly
+                    :mask="mask('date')"
                     required
                     slot="activator"
                     v-validate="'required|max:10'"
@@ -53,14 +53,12 @@
     import Person from "../../../models/Person"
 
     import BrowserHelper from "../../../helpers/BrowserHelper";
+    import MaskHelper from "../../../helpers/MaskHelper";
 
     import BreadCrumb from "../BreadCrumb"
     import Form from "../form/Form"
 
     export default {
-        $_veeValidate : {
-            validator : "new"
-        },
         components : {
             BreadCrumb,
             Form
@@ -78,6 +76,9 @@
             }
         },
         methods : {
+            mask(mask) {
+                return MaskHelper.MASKS[mask]
+            },
             save(event) {
                 event.preventDefault()
                 this.$store.dispatch("person/save", this.person)

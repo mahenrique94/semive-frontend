@@ -7,6 +7,10 @@ Vue.use(VueI18n)
 
 const messages = {
     pt : {
+        button : {
+            no : "Não",
+            yes : "Sim"
+        },
         describe : {
             app : "O Semive é um sistema simples para controle de clientes, fornecedores, produtos e pedidos."
         },
@@ -38,8 +42,19 @@ const messages = {
             products : "Produtos"
         },
         message : {
+            api : {
+                remove : {
+                    success : "Registro removido com sucesso"
+                },
+                save : {
+                    success : "Registro criado com sucesso"
+                }
+            },
             app : {
                 enjoy : "Aproveite as nossas funcionalides!"
+            },
+            confirm : {
+                remove : "Atenção, a remoção de um registro é PERMANENTE"
             },
             table : {
                 empty : "A tabela está vázia",
@@ -54,6 +69,8 @@ const messages = {
         },
         title : {
             app : "Semive",
+            confirm : "Você tem certeza?",
+            success : "Sucesso",
             welcome : "Bem vindo ao Semive"
         },
         validator : {
