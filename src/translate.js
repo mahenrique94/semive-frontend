@@ -20,6 +20,7 @@ const messages = {
             date : {
                 born : "Data de Nascimento"
             },
+            description : "Descrição",
             female : "Feminino",
             male : "Masculino",
             name : "Nome",
@@ -29,32 +30,48 @@ const messages = {
             dashboard : "/",
             form : "form",
             list : "list",
-            orders : "/pedidos",
-            person : "/pessoas",
-            products : "/produtos"
+            orders : "/order",
+            person : "/person",
+            products : "/product"
         },
         menu : {
             dashboard : "Dashboard",
             form : "Formulário",
             list : "Lista",
+            mock : "Mockar",
             orders : "Pedidos",
             person : "Pessoas",
-            products : "Produtos"
+            products : "Produtos",
+            unmock : "Desmockar"
         },
         message : {
             api : {
+                edit : {
+                    error : "Não foi possível editar o registro"
+                },
+                list : {
+                    error : "Não foi possível listar os registros"
+                },
                 remove : {
+                    error : "Não foi possível excluir o registro",
                     success : "Registro removido com sucesso"
                 },
                 save : {
+                    error : "Não foi possível criar um novo registro",
                     success : "Registro criado com sucesso"
+                },
+                update : {
+                    error : "Não foi possível atualizar o registro",
+                    success : "Registro atualizado com sucesso"
                 }
             },
             app : {
                 enjoy : "Aproveite as nossas funcionalides!"
             },
             confirm : {
-                remove : "Atenção, a remoção de um registro é PERMANENTE"
+                mock : "Inserir registros para teste no banco de dados",
+                remove : "Atenção, a remoção de um registro é PERMANENTE",
+                unmock : "Atenção, ao remover os registros para teste será PERMANENTE"
             },
             table : {
                 empty : "A tabela está vázia",
@@ -70,6 +87,7 @@ const messages = {
         title : {
             app : "Semive",
             confirm : "Você tem certeza?",
+            error : "Erro",
             success : "Sucesso",
             welcome : "Bem vindo ao Semive"
         },

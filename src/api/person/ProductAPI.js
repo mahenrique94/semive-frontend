@@ -1,30 +1,30 @@
 import { http } from "../"
-import Person from "../../domain/person/Person"
+import Product from "../../domain/product/Product"
 
 import APIHelper from "../../helpers/APIHelper"
 
-const PERSON_ENDPOINT = "person"
+const PRODUCT_ENDPOINT = "product"
 
-export default class PersonAPI {
+export default class ProductAPI {
 
     static async edit(id) {
-        return await http.get(`${PERSON_ENDPOINT}/${id}`)
+        return await http.get(`${PRODUCT_ENDPOINT}/${id}`)
             .then(APIHelper.handleSuccess)
-            .then(data => Person.new(data))
+            .then(data => Product.new(data))
     }
 
     static async list() {
-        return await http.get(PERSON_ENDPOINT)
+        return await http.get(PRODUCT_ENDPOINT)
             .then(APIHelper.handleSuccess)
             .then(data => {
                 const list = []
-                data.forEach(item => list.push(Person.new(item)))
+                data.forEach(item => list.push(Product.new(item)))
                 return list
             })
     }
 
     static async remove(id) {
-        return await http.delete(`${PERSON_ENDPOINT}/${id}`);
+        return await http.delete(`${PRODUCT_ENDPOINT}/${id}`);
     }
 
     static async save(data) {
@@ -33,13 +33,12 @@ export default class PersonAPI {
             method = "put"
         }
 
-        data.dateBorn = data.dateBornBrazilian
         return await http({
             data : JSON.stringify(data),
             method,
-            url : PERSON_ENDPOINT
+            url : PRODUCT_ENDPOINT
         }).then(APIHelper.handleSuccess)
-            .then(response => Person.new(response))
+            .then(response => Product.new(response))
     }
 
 }

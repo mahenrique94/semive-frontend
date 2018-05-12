@@ -3,7 +3,10 @@
         <slot name="breadcrumb"></slot>
         <v-container class="form__body" fluid grid-list-lg>
             <v-layout row wrap>
-                <slot></slot>
+                <v-flex align-center v-if="fetching" justify-center xs12 style="text-align: center">
+                    <v-progress-circular color="primary" indeterminate :size="35"/>
+                </v-flex>
+                <slot v-if="!fetching"></slot>
             </v-layout>
         </v-container>
         <FormActions :component="component"/>
@@ -19,6 +22,10 @@
         },
         name: "Form",
         props : {
+            fetching : {
+                default : false,
+                type : Boolean
+            },
             component : {
                 required : true,
                 type : String

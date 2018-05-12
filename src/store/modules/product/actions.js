@@ -2,7 +2,7 @@ import Vue from "vue"
 import { router } from "../../../routes"
 import i18n from "../../../translate"
 
-import PersonAPI from "../../../api/person/PersonAPI"
+import ProductAPI from "../../../api/person/ProductAPI"
 
 import NotificationHelper from "../../../helpers/NotificationHelper";
 
@@ -10,7 +10,7 @@ export const actions = {
     
     edit({ commit }, id) {
         commit("fetching", true)
-        PersonAPI.edit(id)
+        ProductAPI.edit(id)
             .then(object => commit("edit", object))
             .then(() => commit("fetching", false))
             .catch(error => {
@@ -21,7 +21,7 @@ export const actions = {
 
     list({ commit }) {
         commit("fetching", true)
-        PersonAPI.list()
+        ProductAPI.list()
             .then(list => commit("list", list))
             .then(() => commit("fetching", false))
             .then(() => commit("edit", {}))
@@ -32,7 +32,7 @@ export const actions = {
     },
 
     remove({ commit, state }, id) {
-        PersonAPI.remove(id)
+        ProductAPI.remove(id)
             .then(() => commit("list", state.list.filter(object => object.id !== id)))
             .then(() => NotificationHelper.success(i18n.t("message.api.remove.success")))
             .catch(error => {
@@ -42,12 +42,12 @@ export const actions = {
     },
 
     save({ commit }, data) {
-        PersonAPI.save(data)
+        ProductAPI.save(data)
             .then(data => {
                 commit("edit", data)
                 return data
             })
-            .then(data => router.push({ name : "PersonEdit", params : { id : data.id } }))
+            .then(data => router.push({ name : "ProductEdit", params : { id : data.id } }))
             .then(() => {
                 if (data.id) {
                     NotificationHelper.success(i18n.t("message.api.update.success"))

@@ -22,7 +22,13 @@
             :search="filter"
         >
             <template slot="items" slot-scope="props">
-                <td v-for="column in columns" :key="column">{{ props.item[column] }}</td>
+                <td v-for="column in columns" :key="column">
+                    <div v-if="typeof props.item[column] === 'boolean'">
+                        <v-icon color="cyan" v-if="props.item[column]">done</v-icon>
+                        <v-icon color="pink" v-else>clear</v-icon>
+                    </div>
+                    <div v-else>{{ props.item[column] }}</div>
+                </td>
                 <td class="justify-center layout px-0">
                     <v-btn class="mx-0" icon :to="`${$t(`link.${component}`)}/${props.item.id}`">
                         <v-icon color="teal">edit</v-icon>

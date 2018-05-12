@@ -102,6 +102,9 @@
             if (this.object.id) {
                 this.person = this.object
             }
+
+            console.log("[DateBorn] => ", this.person.dateBorn)
+            console.log("[DateBornBrazilian] => ",  this.person.dateBornBrazilian)
         },
         watch : {
             dateBorn(date) {
