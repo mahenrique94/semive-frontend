@@ -15,9 +15,9 @@ export const router = new VueRouter({
         { path : "/", component : Dashboard, name : "Dashboard" },
         { path : "/person", component : PersonList, name : "PersonList" },
         { path : "/person/form", component : PersonForm, name : "PersonForm" },
-        { path : "/person/:id", component : PersonForm, name : "PersonEdit" },
+        { path : "/person/:idPerson", component : PersonForm, name : "PersonEdit" },
         { path : "/product", component : ProductList, name : "ProductList" },
         { path : "/product/form", component : ProductForm, name : "ProductForm" },
-        { path : "/product/:id", component : ProductForm, name : "ProductEdit" }
+        { path : "/product/:idProduct", component : ProductForm, name : "ProductEdit" }
     ]
 })

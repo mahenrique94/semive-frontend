@@ -8,7 +8,10 @@ Vue.use(VueI18n)
 const messages = {
     pt : {
         button : {
+            cancel : "Cancelar",
+            new : "Adicionar novo",
             no : "Não",
+            save : "Salvar",
             yes : "Sim"
         },
         describe : {
@@ -21,10 +24,12 @@ const messages = {
                 born : "Data de Nascimento"
             },
             description : "Descrição",
+            document : "Documento",
             female : "Feminino",
             male : "Masculino",
             name : "Nome",
-            sex : "Sexo"
+            sex : "Sexo",
+            value : "Valor"
         },
         link : {
             dashboard : "/",
@@ -32,6 +37,7 @@ const messages = {
             list : "list",
             orders : "/order",
             person : "/person",
+            personDocument : "/person/document",
             products : "/product"
         },
         menu : {
@@ -82,12 +88,20 @@ const messages = {
             }
         },
         placeholder : {
-            search : "Digite aqui para filtrar"
+            search : "Digite aqui para filtrar",
+            select : "Nenhuma opção adicionada"
+        },
+        tab : {
+            address : "Endereço",
+            document : "Documento"
         },
         title : {
             app : "Semive",
             confirm : "Você tem certeza?",
             error : "Erro",
+            form : {
+                document : "Formulário de Documento"
+            },
             success : "Sucesso",
             welcome : "Bem vindo ao Semive"
         },

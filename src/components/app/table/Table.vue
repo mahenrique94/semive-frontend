@@ -1,9 +1,9 @@
 <template>
-    <v-card class="mt-4">
-        <v-container class="pt-0" fluid>
+    <v-card class="mt-4" :style="styles">
+        <v-container class="pt-0" fluid v-if="search">
             <v-layout row wrap>
                 <v-spacer/>
-                <v-flex v-if="search" xs4>
+                <v-flex xs4>
                     <v-text-field append-icon="search" hide-details :label="$t('placeholder.search')" v-model="filter" single-line/>
                 </v-flex>
             </v-layout>
@@ -30,7 +30,10 @@
                     <div v-else>{{ props.item[column] }}</div>
                 </td>
                 <td class="justify-center layout px-0">
-                    <v-btn class="mx-0" icon :to="`${$t(`link.${component}`)}/${props.item.id}`">
+                    <v-btn class="mx-0" icon v-if="!edit" :to="`${$t(`link.${component}`)}/${props.item.id}`">
+                        <v-icon color="teal">edit</v-icon>
+                    </v-btn>
+                    <v-btn class="mx-0" icon v-if="edit" @click="edit(props.item)">
                         <v-icon color="teal">edit</v-icon>
                     </v-btn>
                     <Confirm color="pink" icon="delete" :onConfirm="remove" :parameters="[ props.item.id ]"/>
@@ -54,7 +57,8 @@
         },
         data() {
             return {
-                filter : ""
+                filter : "",
+                styles : this.crud ? "margin-top: 0 !important;" : ""
             }
         },
         methods : {
@@ -71,6 +75,13 @@
             component : {
                 required : true,
                 type : String
+            },
+            crud : {
+                default : false,
+                type : Boolean
+            },
+            edit : {
+                type : Function
             },
             fetching : {
                 default : () => false,

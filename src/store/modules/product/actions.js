@@ -1,8 +1,7 @@
-import Vue from "vue"
 import { router } from "../../../routes"
 import i18n from "../../../translate"
 
-import ProductAPI from "../../../api/person/ProductAPI"
+import ProductAPI from "../../../api/product/ProductAPI"
 
 import NotificationHelper from "../../../helpers/NotificationHelper";
 
@@ -47,7 +46,7 @@ export const actions = {
                 commit("edit", data)
                 return data
             })
-            .then(data => router.push({ name : "ProductEdit", params : { id : data.id } }))
+            .then(data => router.push({ name : "ProductEdit", params : { idProduct: data.id } }))
             .then(() => {
                 if (data.id) {
                     NotificationHelper.success(i18n.t("message.api.update.success"))

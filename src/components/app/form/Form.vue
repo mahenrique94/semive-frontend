@@ -1,15 +1,15 @@
 <template>
     <form class="form" @submit="onSubmit">
-        <slot name="breadcrumb"></slot>
-        <v-container class="form__body" fluid grid-list-lg>
+        <slot name="breadcrumb"/>
+        <v-container class="form__body" fluid grid-list-lg :style="styles()">
             <v-layout row wrap>
                 <v-flex align-center v-if="fetching" justify-center xs12 style="text-align: center">
                     <v-progress-circular color="primary" indeterminate :size="35"/>
                 </v-flex>
-                <slot v-if="!fetching"></slot>
+                <slot v-if="!fetching"/>
             </v-layout>
         </v-container>
-        <FormActions :component="component"/>
+        <FormActions :component="component" v-if="!modal"/>
     </form>
 </template>
 
@@ -20,15 +20,30 @@
         components : {
             FormActions
         },
+        methods : {
+            styles() {
+                let styles = ""
+                if (this.modal) {
+                    styles += "border: none;"
+                    styles += "margin: 0;"
+                    styles += "paddiing: 0;"
+                }
+                return styles
+            }
+        },
         name: "Form",
         props : {
+            component : {
+                required : true,
+                type : String
+            },
             fetching : {
                 default : false,
                 type : Boolean
             },
-            component : {
-                required : true,
-                type : String
+            modal : {
+                default : false,
+                type : Boolean
             },
             onSubmit : {
                 required : true,

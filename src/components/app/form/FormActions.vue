@@ -39,6 +39,7 @@
 <style scoped>
     .speed-dial {
         position: absolute;
+        z-index: 1;
     }
     .btn--floating {
         position: relative;

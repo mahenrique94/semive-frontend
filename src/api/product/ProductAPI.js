@@ -1,4 +1,4 @@
-import { http } from "../"
+import { http } from "../index"
 import Product from "../../domain/product/Product"
 
 import APIHelper from "../../helpers/APIHelper"
