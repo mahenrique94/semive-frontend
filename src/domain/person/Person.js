@@ -3,7 +3,10 @@ import DateHelper from "../../helpers/DateHelper"
 export default class Person {
 
     static new(data) {
-        return new Person(data.active, data.dateBorn, data.dateCreated, data.dateUpdated, data.id, data.name, data.sex)
+        if (data) {
+            return new Person(data.active, data.dateBorn, data.dateCreated, data.dateUpdated, data.id, data.name, data.sex)
+        }
+        return new Person()
     }
 
     constructor(active = true, dateBorn, dateCreated = new Date(), dateUpdated = new Date(), id, name, sex) {

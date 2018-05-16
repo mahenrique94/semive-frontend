@@ -4,7 +4,10 @@ import Unity from "../unity/Unity";
 export default class Product {
 
     static new(data) {
-        return new Product(data.active, data.barCode, data.brand, data.dateCreated, data.dateUpdated, data.description, data.id, data)
+        if (data) {
+            return new Product(data.active, data.barCode, data.brand, data.dateCreated, data.dateUpdated, data.description, data.id, data)
+        }
+        return new Product()
     }
 
     constructor(active = true, barCode, brand, dateCreated = new Date(), dateUpdated = new Date(), description, id, data) {

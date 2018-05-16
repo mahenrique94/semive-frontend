@@ -1,7 +1,10 @@
 export default class Unity {
 
     static new(data) {
-        return new Unity(data.dateCreated, data.dateUpdated, data.description, data.id, data.unity)
+        if (data) {
+            return new Unity(data.dateCreated, data.dateUpdated, data.description, data.id, data.unity)
+        }
+        return new Unity()
     }
 
     constructor(dateCreated = new Date(), dateUpdated = new Date(), description, id, unity) {

@@ -21,6 +21,8 @@ const messages = {
             active : "Ativo",
             address : "Endereço",
             all : "Todos",
+            areaCode : "DDD",
+            cellphone : "Celular",
             city : "Cidade",
             complement : "Complemento",
             date : {
@@ -29,12 +31,15 @@ const messages = {
             description : "Descrição",
             district : "Bairro",
             document : "Documento",
+            email : "Email",
             female : "Feminino",
+            group : "Grupo",
             male : "Masculino",
             name : "Nome",
             number : "Número",
             sex : "Sexo",
             state : "Estado",
+            telephone : "Telefone",
             type : "Tipo",
             value : "Valor",
             zipCode : "CEP"
@@ -102,6 +107,8 @@ const messages = {
         },
         tab : {
             address : "Endereço",
+            contact : "Contato",
+            definition: "Definição",
             document : "Documento"
         },
         title : {
@@ -110,6 +117,8 @@ const messages = {
             error : "Erro",
             form : {
                 address : "Formulário de Endereço",
+                contact : "Formulário de Contato",
+                definition : "Formulário de Definição",
                 document : "Formulário de Documento"
             },
             success : "Sucesso",

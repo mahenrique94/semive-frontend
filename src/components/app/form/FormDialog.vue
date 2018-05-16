@@ -37,8 +37,8 @@
                 this.$parent.$emit("closeDialog", this.dialog)
             },
             save() {
-                this.close()
                 this.onSubmit()
+                this.close()
             }
         },
         name: "FormDialog",

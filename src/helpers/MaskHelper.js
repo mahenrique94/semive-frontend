@@ -1,7 +1,10 @@
 export default class MaskHelper {
 
     static MASKS = {
-        date : "##/##/####"
+        cellphone : "#####-####",
+        date : "##/##/####",
+        telephone : "####-####",
+        zipCode : "#####-###"
     }
 
 }

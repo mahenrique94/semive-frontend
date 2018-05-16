@@ -3,7 +3,10 @@ import State from "../state/State";
 export default class City {
 
     static new(data) {
-        return new City(data.dateCreated, data.dateUpdated, data.description, data.id, State.new(data.idState))
+        if (data) {
+            return new City(data.dateCreated, data.dateUpdated, data.description, data.id, State.new(data.idState))
+        }
+        return new City()
     }
 
     constructor(dateCreated = new Date(), dateUpdated = new Date(), description, id, idState) {

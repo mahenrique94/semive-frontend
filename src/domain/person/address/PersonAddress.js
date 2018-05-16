@@ -5,7 +5,10 @@ import Person from "../Person";
 export default class PersonAddress {
 
     static new(data) {
-        return new PersonAddress(data.active, data.address, data.complement, data.dateCreated, data.dateUpdated, data.district, data.id, City.new(data.idCity), Person.new(data.idPerson), AddressType.new(data.idType), data.number, data.zipCode)
+        if (data) {
+            return new PersonAddress(data.active, data.address, data.complement, data.dateCreated, data.dateUpdated, data.district, data.id, City.new(data.idCity), Person.new(data.idPerson), AddressType.new(data.idType), data.number, data.zipCode)
+        }
+        return new PersonAddress()
     }
 
     constructor(active = true, address, complement, dateCreated = new Date(), dateUpdated = new Date(), district, id, idCity, idPerson, idType, number, zipCode) {
@@ -21,6 +24,13 @@ export default class PersonAddress {
         this.idType = idType
         this.number = number
         this.zipCode = zipCode
+    }
+
+    get type() {
+        if (this.idType) {
+            return this.idType.description
+        }
+        return null
     }
 
 }

@@ -32,8 +32,9 @@
                         :label="$t('label.date.born')"
                         :mask="mask('date')"
                         required
+                        return-masked-value
                         slot="activator"
-                        v-validate="'required|max:10'"
+                        v-validate="'required|max:10|min:10'"
                         :value="person.dateBornBrazilian"
                     />
                     <v-date-picker :locale="locale" v-model="dateBorn" no-title scrollable/>

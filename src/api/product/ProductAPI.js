@@ -38,7 +38,6 @@ export default class ProductAPI {
             method,
             url : PRODUCT_ENDPOINT
         }).then(APIHelper.handleSuccess)
-            .then(response => Product.new(response))
     }
 
 }

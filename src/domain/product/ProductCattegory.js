@@ -1,7 +1,10 @@
 export default class ProductCattegory {
 
     static new(data) {
-        return new ProductCattegory(data.active, data.dataCreated, data.dataUpdated, data.description, data.id)
+        if (data) {
+            return new ProductCattegory(data.active, data.dataCreated, data.dataUpdated, data.description, data.id)
+        }
+        return new ProductCattegory()
     }
 
     constructor(active = true, dataCreated = new Date(), dataUpdated = new Date(), description, id) {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <PersonAddressForm/>
-        <Table :columns="['address', 'number', 'zipCode', 'district', 'active']" component="personAddress" crud :edit="edit" :fetching="fetching" :headers="headers" :list="list" :remove="remove"/>
+        <Table :columns="['type', 'address', 'number', 'zipCode', 'district', 'active']" component="personAddress" crud :edit="edit" :fetching="fetching" :headers="headers" :list="list" :remove="remove"/>
     </div>
 </template>
 
@@ -32,6 +32,7 @@
         data() {
             return {
                 headers : [
+                    { sortable : false, text : this.$t("label.type"), value : "type" },
                     { sortable : false, text : this.$t("label.address"), value : "address" },
                     { sortable : false, text : this.$t("label.number"), value : "number" },
                     { sortable : false, text : this.$t("label.zipCode"), value : "zipCode" },

@@ -1,7 +1,10 @@
 export default class AddressType {
 
     static new(data) {
-        return new AddressType(data.active, data.dateCreated, data.dateUpdated, data.description, data.id)
+        if (data) {
+            return new AddressType(data.active, data.dateCreated, data.dateUpdated, data.description, data.id)
+        }
+        return new AddressType()
     }
 
     constructor(active = true, dateCreated = new Date(), dateUpdated = new Date(), description, id) {

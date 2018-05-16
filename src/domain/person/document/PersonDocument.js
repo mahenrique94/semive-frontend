@@ -4,7 +4,10 @@ import Person from "../Person";
 export default class PersonDocument {
 
     static new(data) {
-        return new PersonDocument(data.active, data.dateCreated, data.dateupdated, data.id, Person.new(data.idPerson), DocumentType.new(data.idType), data.value)
+        if (data) {
+            return new PersonDocument(data.active, data.dateCreated, data.dateupdated, data.id, Person.new(data.idPerson), DocumentType.new(data.idType), data.value)
+        }
+        return new PersonDocument()
     }
 
     constructor(active = true, dateCreated = new Date(), dateUpdated = new Date(), id, idPerson, idType, value) {

@@ -39,7 +39,6 @@ export default class PersonDocumentAPI {
             method,
             url : PERSON_DOCUMENT_ENDPOINT
         }).then(APIHelper.handleSuccess)
-            .then(response => PersonDocument.new(response))
     }
 
 }

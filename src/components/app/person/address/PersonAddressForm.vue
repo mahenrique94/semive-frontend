@@ -23,7 +23,7 @@
                 data-vv-name="personAddress.address"
                 :error-messages="errors.collect('personAddress.address')"
                 :label="$t('label.address')"
-                v-model="personAddress.value"
+                v-model="personAddress.address"
                 required
                 v-validate="'required|max:60'"
             />
@@ -35,10 +35,11 @@
                 data-vv-name="personAddress.zipCode"
                 :error-messages="errors.collect('personAddress.zipCode')"
                 :label="$t('label.zipCode')"
-                mask="#####-###"
+                :mask="mask('zipCode')"
                 v-model="personAddress.zipCode"
                 required
-                v-validate="'required|max:10'"
+                return-masked-value
+                v-validate="'required|max:10|min:9'"
             />
         </v-flex>
         <v-flex xs2>
@@ -73,21 +74,20 @@
                 :error-messages="errors.collect('personAddress.complement')"
                 :label="$t('label.complement')"
                 v-model="personAddress.complement"
-                required
-                v-validate="'required|max:30'"
+                v-validate="'max:30'"
             />
         </v-flex>
         <v-flex xs2>
             <v-select
                 clearable
-                data-vv-name="personAddress.idState"
-                :error-messages="errors.collect('personAddress.idState')"
+                data-vv-name="state"
+                :error-messages="errors.collect('state')"
                 :items="states"
                 item-text="state"
                 item-value="id"
                 :label="$t('label.state')"
                 :loading="statesFetching"
-                v-model="personAddress.idState"
+                v-model="state"
                 :no-data-text="$t('placeholder.select')"
                 required
                 v-validate="'required'"
@@ -109,12 +109,20 @@
                 v-validate="'required'"
             />
         </v-flex>
+        <v-flex v-if="this.personAddress.id" xs12>
+            <v-checkbox
+                    :label="$t('label.active')"
+                    v-model="personAddress.active"
+            ></v-checkbox>
+        </v-flex>
     </FormDialog>
 </template>
 
 <script>
     import { mapGetters } from "vuex"
     import { event } from "../../../../event"
+
+    import MaskHelper from "../../../../helpers/MaskHelper"
 
     import FormDialog from "../../form/FormDialog"
 
@@ -126,7 +134,9 @@
         },
         computed : {
             ...mapGetters({
-                object : "personDocument/object",
+                cities : "city/list",
+                citiesFetching : "city/fetching",
+                object : "personAddress/object",
                 states : "state/list",
                 statesFetching : "state/fetching",
                 types : "addressType/list",
@@ -149,10 +159,14 @@
         data() {
             return {
                 editing : false,
-                personAddress : new PersonAddress()
+                personAddress : new PersonAddress(),
+                state : null
             }
         },
         methods : {
+            mask(mask) {
+                return MaskHelper.MASKS[mask]
+            },
             save() {
                 const idPerson = this.$route.params.idPerson
                 if (idPerson) {
@@ -172,6 +186,14 @@
         updated() {
             if (this.object.id) {
                 this.personAddress = this.object
+                this.state = this.personAddress.idCity.idState.id
+            }
+        },
+        watch : {
+            state(value) {
+                if (value) {
+                    this.$store.dispatch("city/listByIdState", value)
+                }
             }
         }
     }

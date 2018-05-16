@@ -3,10 +3,14 @@ import Vuex from "vuex"
 import createLogger from 'vuex/dist/logger'
 
 import addressType from "./modules/address/type"
+import city from "./modules/city"
 import documentType from "./modules/document/type"
 import person from "./modules/person"
 import personAddress from "./modules/person/address"
+import personContact from "./modules/person/contact"
+import personDefinition from "./modules/person/definition"
 import personDocument from "./modules/person/document"
+import personGroup from "./modules/person/group"
 import product from "./modules/product"
 import state from "./modules/state"
 
@@ -20,6 +24,13 @@ export default new Vuex.Store({
             getters : addressType.getters,
             mutations : addressType.mutations,
             state : addressType.state
+        },
+        city : {
+            actions : city.actions,
+            namespaced : true,
+            getters : city.getters,
+            mutations : city.mutations,
+            state : city.state
         },
         documentType : {
             actions : documentType.actions,
@@ -42,12 +53,33 @@ export default new Vuex.Store({
             mutations : personAddress.mutations,
             state : personAddress.state
         },
+        personContact : {
+            actions : personContact.actions,
+            namespaced : true,
+            getters : personContact.getters,
+            mutations : personContact.mutations,
+            state : personContact.state
+        },
+        personDefinition : {
+            actions : personDefinition.actions,
+            namespaced : true,
+            getters : personDefinition.getters,
+            mutations : personDefinition.mutations,
+            state : personDefinition.state
+        },
         personDocument : {
             actions : personDocument.actions,
             namespaced : true,
             getters : personDocument.getters,
             mutations : personDocument.mutations,
             state : personDocument.state
+        },
+        personGroup : {
+            actions : personGroup.actions,
+            namespaced : true,
+            getters : personGroup.getters,
+            mutations : personGroup.mutations,
+            state : personGroup.state
         },
         product : {
             actions : product.actions,

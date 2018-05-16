@@ -39,7 +39,6 @@ export default class PersonAddressAPI {
             method,
             url : PERSON_ADDRESS_ENDPOINT
         }).then(APIHelper.handleSuccess)
-            .then(response => PersonAddress.new(response))
     }
 
 }

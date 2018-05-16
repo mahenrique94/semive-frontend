@@ -3,7 +3,10 @@ import ProductCattegory from "./ProductCattegory";
 export default class ProductType {
 
     static new(data) {
-        return new ProductType(data.active, data.dataCreated, data.dataUpdated, data.description, data.id, data)
+        if (data) {
+            return new ProductType(data.active, data.dataCreated, data.dataUpdated, data.description, data.id, data)
+        }
+        return new ProductType()
     }
 
     constructor(active = true, dataCreated = new Date(), dataUpdated = new Date(), description, id, data) {
