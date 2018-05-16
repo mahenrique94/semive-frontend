@@ -19,17 +19,25 @@ const messages = {
         },
         label : {
             active : "Ativo",
+            address : "Endereço",
             all : "Todos",
+            city : "Cidade",
+            complement : "Complemento",
             date : {
                 born : "Data de Nascimento"
             },
             description : "Descrição",
+            district : "Bairro",
             document : "Documento",
             female : "Feminino",
             male : "Masculino",
             name : "Nome",
+            number : "Número",
             sex : "Sexo",
-            value : "Valor"
+            state : "Estado",
+            type : "Tipo",
+            value : "Valor",
+            zipCode : "CEP"
         },
         link : {
             dashboard : "/",
@@ -38,6 +46,7 @@ const messages = {
             orders : "/order",
             person : "/person",
             personDocument : "/person/document",
+            personAddress : "/person/address",
             products : "/product"
         },
         menu : {
@@ -100,6 +109,7 @@ const messages = {
             confirm : "Você tem certeza?",
             error : "Erro",
             form : {
+                address : "Formulário de Endereço",
                 document : "Formulário de Documento"
             },
             success : "Sucesso",

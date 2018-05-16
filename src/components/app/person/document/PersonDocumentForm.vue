@@ -1,5 +1,5 @@
 <template>
-    <FormDialog :on-submit="save" title="document">
+    <FormDialog :on-submit="save" :show="editing" title="document">
         <v-flex xs3>
             <v-select
                 clearable
@@ -28,6 +28,12 @@
                 v-validate="'required|max:30'"
             />
         </v-flex>
+        <v-flex v-if="this.personDocument.id" xs12>
+            <v-checkbox
+                :label="$t('label.active')"
+                v-model="personDocument.active"
+            ></v-checkbox>
+        </v-flex>
     </FormDialog>
 </template>
 
@@ -45,7 +51,7 @@
         },
         computed : {
             ...mapGetters({
-                object : "documentType/object",
+                object : "personDocument/object",
                 types : "documentType/list",
                 typesFetching : "documentType/fetching"
             })
@@ -56,15 +62,15 @@
             event.$on("personDocument/edit", idPersonDocument => {
                 if (idPersonDocument) {
                     this.$store.dispatch("personDocument/edit", idPersonDocument)
+                        .then(() => {
+                            this.editing = true
+                        })
                 }
             })
-
-            if (this.object.ic) {
-                this.personDocument = this.object
-            }
         },
         data() {
             return {
+                editing : false,
                 personDocument : new PersonDocument()
             }
         },
@@ -77,10 +83,21 @@
                 this.$store.dispatch("personDocument/save", this.personDocument)
             }
         },
-        name: "PersonDocumentForm"
+        mounted() {
+            this.$on("closeDialog", editing => {
+                this.$store.commit("personDocument/editClear")
+                this.personDocument = new PersonDocument()
+                this.editing = editing
+            });
+        },
+        name: "PersonDocumentForm",
+        updated() {
+            if (this.object.id) {
+                this.personDocument = this.object
+            }
+        }
     }
 </script>
 
 <style scoped>
-
 </style>

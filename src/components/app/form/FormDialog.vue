@@ -34,6 +34,7 @@
         methods : {
             close() {
                 this.dialog = !this.dialog
+                this.$parent.$emit("closeDialog", this.dialog)
             },
             save() {
                 this.close()
@@ -46,9 +47,18 @@
                 required : true,
                 type : Function
             },
+            show : {
+                default : false,
+                type : Boolean
+            },
             title : {
                 required : true,
                 type : String
+            }
+        },
+        watch : {
+            show : function(value) {
+                this.dialog = value
             }
         }
     }

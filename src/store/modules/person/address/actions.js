@@ -1,6 +1,6 @@
 import i18n from "../../../../translate"
 
-import PersonDocumentAPI from "../../../../api/person/document/PersonDocumentAPI"
+import PersonAddressAPI from "../../../../api/person/address/PersonAddressAPI"
 
 import NotificationHelper from "../../../../helpers/NotificationHelper";
 
@@ -8,7 +8,7 @@ export const actions = {
 
     async edit({ commit }, id) {
         commit("fetching", true)
-        await PersonDocumentAPI.edit(id)
+        await PersonAddressAPI.edit(id)
             .then(object => commit("edit", object))
             .then(() => commit("fetching", false))
             .catch(error => {
@@ -19,7 +19,7 @@ export const actions = {
 
     listByIdPerson({ commit }, idPerson) {
         commit("fetching", true)
-        PersonDocumentAPI.listByIdPerson(idPerson)
+        PersonAddressAPI.listByIdPerson(idPerson)
             .then(list => commit("list", list))
             .then(() => commit("fetching", false))
             .then(() => commit("edit", {}))
@@ -30,7 +30,7 @@ export const actions = {
     },
 
     remove({ commit, state }, id) {
-        PersonDocumentAPI.remove(id)
+        PersonAddressAPI.remove(id)
             .then(() => commit("list", state.list.filter(object => object.id !== id)))
             .then(() => NotificationHelper.success(i18n.t("message.api.remove.success")))
             .catch(error => {
@@ -40,7 +40,7 @@ export const actions = {
     },
 
     save({ dispatch }, data) {
-        PersonDocumentAPI.save(data)
+        PersonAddressAPI.save(data)
             .then(() => {
                 dispatch("listByIdPerson", data.idPerson)
                 if (data.id) {

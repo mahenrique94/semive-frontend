@@ -5,17 +5,26 @@
             {{ $t("tab.document") }}
             <v-icon>account_box</v-icon>
         </v-tab>
-        <v-tab-item key="person-document" id="person-document">
+        <v-tab href="#person-address">
+            {{ $t("tab.address") }}
+            <v-icon>location_on</v-icon>
+        </v-tab>
+        <v-tab-item id="person-document">
             <PersonDocumentList/>
+        </v-tab-item>
+        <v-tab-item id="person-address">
+            <PersonAddressList/>
         </v-tab-item>
     </v-tabs>
 </template>
 
 <script>
+    import PersonAddressList from "./address/PersonAddressList"
     import PersonDocumentList from "./document/PersonDocumentList"
 
     export default {
         components : {
+            PersonAddressList,
             PersonDocumentList
         },
         name: "PersonTabs"

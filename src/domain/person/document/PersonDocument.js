@@ -9,8 +9,8 @@ export default class PersonDocument {
 
     constructor(active = true, dateCreated = new Date(), dateUpdated = new Date(), id, idPerson, idType, value) {
         this.active = active
-        this.dateCreated = dateCreated
-        this.dateUpdated = dateUpdated
+        this.dateCreated = new Date(dateCreated)
+        this.dateUpdated = new Date(dateUpdated)
         this.id = id
         this.idPerson = idPerson
         this.idType = idType

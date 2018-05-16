@@ -1,7 +1,7 @@
-export default class DocumentType {
+export default class AddressType {
 
     static new(data) {
-        return new DocumentType(data.active, data.dateCreated, data.dateUpdated, data.description, data.id)
+        return new AddressType(data.active, data.dateCreated, data.dateUpdated, data.description, data.id)
     }
 
     constructor(active = true, dateCreated = new Date(), dateUpdated = new Date(), description, id) {
