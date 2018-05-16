@@ -19,7 +19,10 @@ export default class ProductType {
     }
 
     get cattegory() {
-        return this.idCattegory.description
+        if (this.idCattegory) {
+            return this.idCattegory.description
+        }
+        return null
     }
 
 }

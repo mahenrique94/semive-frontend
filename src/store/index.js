@@ -5,6 +5,8 @@ import createLogger from 'vuex/dist/logger'
 import addressType from "./modules/address/type"
 import city from "./modules/city"
 import documentType from "./modules/document/type"
+import order from "./modules/order"
+import orderItem from "./modules/order/item"
 import person from "./modules/person"
 import personAddress from "./modules/person/address"
 import personContact from "./modules/person/contact"
@@ -41,6 +43,20 @@ export default new Vuex.Store({
             getters : documentType.getters,
             mutations : documentType.mutations,
             state : documentType.state
+        },
+        order : {
+            actions : order.actions,
+            namespaced : true,
+            getters : order.getters,
+            mutations : order.mutations,
+            state : order.state
+        },
+        orderItem : {
+            actions : orderItem.actions,
+            namespaced : true,
+            getters : orderItem.getters,
+            mutations : orderItem.mutations,
+            state : orderItem.state
         },
         person : {
             actions : person.actions,

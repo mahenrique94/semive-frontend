@@ -21,7 +21,10 @@ export default class PersonDocument {
     }
 
     get document() {
-        return this.idType.description
+        if (this.idType) {
+            return this.idType.description
+        }
+        return null
     }
 
 }

@@ -30,7 +30,8 @@ const messages = {
             complement : "Complemento",
             count : "Quantidade",
             date : {
-                born : "Data de Nascimento"
+                born : "Data de Nascimento",
+                delivery : "Data de Entrega"
             },
             description : "Descrição",
             district : "Bairro",
@@ -41,6 +42,8 @@ const messages = {
             male : "Masculino",
             name : "Nome",
             number : "Número",
+            person : "Pessoa",
+            product : "Produto",
             sex : "Sexo",
             state : "Estado",
             telephone : "Telefone",
@@ -119,6 +122,7 @@ const messages = {
             contact : "Contato",
             definition: "Definição",
             document : "Documento",
+            item : "Item",
             stock : "Estoque",
             value : "Valor"
         },
@@ -130,7 +134,8 @@ const messages = {
                 address : "Formulário de Endereço",
                 contact : "Formulário de Contato",
                 definition : "Formulário de Definição",
-                document : "Formulário de Documento"
+                document : "Formulário de Documento",
+                item : "Formulário de Item"
             },
             success : "Sucesso",
             welcome : "Bem vindo ao Semive"

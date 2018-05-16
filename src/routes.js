@@ -2,6 +2,8 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 
 import Dashboard from "./components/app/Dashboard"
+import OrderForm from "./components/app/order/OrderForm"
+import OrderList from "./components/app/order/OrderList"
 import PersonForm from "./components/app/person/PersonForm"
 import PersonList from "./components/app/person/PersonList"
 import ProductCattegoryForm from "./components/app/product/cattegory/ProductCattegoryForm"
@@ -19,6 +21,9 @@ export const router = new VueRouter({
     mode : "history",
     routes : [
         { path : i18n.t("link.dashboard"), component : Dashboard, name : "Dashboard" },
+        { path : i18n.t("link.orders"), component : OrderList, name : "OrderList" },
+        { path : `${i18n.t("link.orders")}/form`, component : OrderForm, name : "OrderForm" },
+        { path : `${i18n.t("link.orders")}/:idOrder`, component : OrderForm, name : "OrderEdit" },
         { path : i18n.t("link.person"), component : PersonList, name : "PersonList" },
         { path : `${i18n.t("link.person")}/form`, component : PersonForm, name : "PersonForm" },
         { path : `${i18n.t("link.person")}/:idPerson`, component : PersonForm, name : "PersonEdit" },

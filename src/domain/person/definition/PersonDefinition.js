@@ -20,7 +20,10 @@ export default class PersonDefinition {
     }
 
     get group() {
-        return this.idGroup.description
+        if (this.idGroup) {
+            return this.idGroup.description
+        }
+        return null
     }
 
 }
