@@ -57,6 +57,22 @@
                         <v-list-tile-title>{{ $t("menu.products") }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
+                <v-list-tile @click="toggle" :to="$t('link.productsCattegory')">
+                    <v-list-tile-action>
+                        <v-icon>view_array</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{ $t("menu.productsCattegory") }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile @click="toggle" :to="$t('link.productsType')">
+                    <v-list-tile-action>
+                        <v-icon>view_carousel</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{ $t("menu.productsType") }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
             </v-list>
         </v-navigation-drawer>
     </div>

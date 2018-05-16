@@ -12,7 +12,10 @@ import personDefinition from "./modules/person/definition"
 import personDocument from "./modules/person/document"
 import personGroup from "./modules/person/group"
 import product from "./modules/product"
+import productCattegory from "./modules/product/cattegory"
+import productType from "./modules/product/type"
 import state from "./modules/state"
+import unity from "./modules/unity"
 
 Vue.use(Vuex)
 
@@ -88,12 +91,33 @@ export default new Vuex.Store({
             mutations : product.mutations,
             state : product.state
         },
+        productCattegory : {
+            actions : productCattegory.actions,
+            namespaced : true,
+            getters : productCattegory.getters,
+            mutations : productCattegory.mutations,
+            state : productCattegory.state
+        },
+        productType : {
+            actions : productType.actions,
+            namespaced : true,
+            getters : productType.getters,
+            mutations : productType.mutations,
+            state : productType.state
+        },
         state : {
             actions : state.actions,
             namespaced : true,
             getters : state.getters,
             mutations : state.mutations,
             state : state.state
+        },
+        unity : {
+            actions : unity.actions,
+            namespaced : true,
+            getters : unity.getters,
+            mutations : unity.mutations,
+            state : unity.state
         }
     },
     plugins : [ createLogger() ]

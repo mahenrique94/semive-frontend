@@ -1,15 +1,15 @@
-import { router } from "../../../routes"
-import i18n from "../../../translate"
+import { router } from "../../../../routes"
+import i18n from "../../../../translate"
 
-import ProductAPI from "../../../api/product/ProductAPI"
+import ProductCattegoryAPI from "../../../../api/product/cattegory/ProductCattegoryAPI"
 
-import NotificationHelper from "../../../helpers/NotificationHelper";
+import NotificationHelper from "../../../../helpers/NotificationHelper";
 
 export const actions = {
     
     edit({ commit }, id) {
         commit("fetching", true)
-        ProductAPI.edit(id)
+        ProductCattegoryAPI.edit(id)
             .then(object => commit("edit", object))
             .then(() => commit("fetching", false))
             .catch(error => {
@@ -20,7 +20,7 @@ export const actions = {
 
     list({ commit }) {
         commit("fetching", true)
-        ProductAPI.list()
+        ProductCattegoryAPI.list()
             .then(list => commit("list", list))
             .then(() => commit("fetching", false))
             .then(() => commit("edit", {}))
@@ -31,7 +31,7 @@ export const actions = {
     },
 
     remove({ commit, state }, id) {
-        ProductAPI.remove(id)
+        ProductCattegoryAPI.remove(id)
             .then(() => commit("list", state.list.filter(object => object.id !== id)))
             .then(() => NotificationHelper.success(i18n.t("message.api.remove.success")))
             .catch(error => {
@@ -41,8 +41,8 @@ export const actions = {
     },
 
     save({ commit }, data) {
-        ProductAPI.save(data)
-            .then(() => router.push({ name : "ProductList" }))
+        ProductCattegoryAPI.save(data)
+            .then(() => router.push({ name : "ProductCattegoryList"}))
             .then(() => {
                 if (data.id) {
                     NotificationHelper.success(i18n.t("message.api.update.success"))

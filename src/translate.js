@@ -22,9 +22,13 @@ const messages = {
             address : "Endereço",
             all : "Todos",
             areaCode : "DDD",
+            barCode : "Código de Barra",
+            brand : "Marca",
+            cattegory : "Categoria",
             cellphone : "Celular",
             city : "Cidade",
             complement : "Complemento",
+            count : "Quantidade",
             date : {
                 born : "Data de Nascimento"
             },
@@ -41,6 +45,7 @@ const messages = {
             state : "Estado",
             telephone : "Telefone",
             type : "Tipo",
+            unity : "Unidade",
             value : "Valor",
             zipCode : "CEP"
         },
@@ -52,7 +57,9 @@ const messages = {
             person : "/person",
             personDocument : "/person/document",
             personAddress : "/person/address",
-            products : "/product"
+            products : "/product",
+            productsCattegory : "/product/cattegory",
+            productsType : "/product/type"
         },
         menu : {
             dashboard : "Dashboard",
@@ -62,6 +69,8 @@ const messages = {
             orders : "Pedidos",
             person : "Pessoas",
             products : "Produtos",
+            productsCattegory : "Produtos / Categorias",
+            productsType : "Produtos / Tipos",
             unmock : "Desmockar"
         },
         message : {
@@ -109,7 +118,9 @@ const messages = {
             address : "Endereço",
             contact : "Contato",
             definition: "Definição",
-            document : "Documento"
+            document : "Documento",
+            stock : "Estoque",
+            value : "Valor"
         },
         title : {
             app : "Semive",
