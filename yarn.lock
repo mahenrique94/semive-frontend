@@ -1093,6 +1093,10 @@ autoprefixer@^8.3.0:
     postcss "^6.0.22"
     postcss-value-parser "^3.2.3"
 
+awesome-notifications@^2.2.9:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/awesome-notifications/-/awesome-notifications-2.2.9.tgz#ada07908c83398c55bea540c04e8126cf952ae54"
+
 axios@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
@@ -4041,6 +4045,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+moment@^2.22.1:
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -4207,6 +4215,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalize.css@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
 
 npm-bundled@^1.0.1:
   version "1.0.3"
@@ -5819,6 +5831,10 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
+sweetalert2@7.x:
+  version "7.19.3"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.19.3.tgz#c94ff773019813b03e880a7fa642f826b051e0d0"
+
 table@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/table/-/table-4.0.2.tgz#a33447375391e766ad34d3486e6e2aedc84d2e36"
@@ -6172,6 +6188,10 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
+vee-validate@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.9.tgz#948a96572d9e2369d5cb217a84269ecf6c1f9a11"
+
 vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
@@ -6181,6 +6201,12 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+vue-awesome-notifications@^2.2.9:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/vue-awesome-notifications/-/vue-awesome-notifications-2.2.9.tgz#bb97a4077977c4709615e4dadb55191f28ff3474"
+  dependencies:
+    awesome-notifications "^2.2.9"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
@@ -6196,6 +6222,10 @@ vue-eslint-parser@^2.0.3:
 vue-hot-reload-api@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
+
+vue-i18n@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.6.0.tgz#8745807756f6ca5090fd85629e9cab99b1c6e442"
 
 vue-loader@^14.2.1:
   version "14.2.2"
@@ -6215,10 +6245,6 @@ vue-loader@^14.2.1:
     vue-style-loader "^4.0.1"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-multilanguage@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/vue-multilanguage/-/vue-multilanguage-3.0.5.tgz#5096ea7b73adea9dc12d49f1358f85094938af22"
-
 vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
@@ -6229,6 +6255,12 @@ vue-style-loader@^4.0.1:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-sweetalert2@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/vue-sweetalert2/-/vue-sweetalert2-1.2.4.tgz#7b7c9b56b02d26c1016f20a3fe342e1f2f0524fa"
+  dependencies:
+    sweetalert2 "7.x"
 
 vue-template-compiler@^2.5.13, vue-template-compiler@^2.5.16:
   version "2.5.16"

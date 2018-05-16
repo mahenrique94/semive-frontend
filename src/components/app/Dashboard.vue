@@ -3,10 +3,10 @@
         <v-container fill-height>
             <v-layout align-center>
                 <v-flex>
-                    <h3 class="display-3" v-lang.title.welcome/>
-                    <span class="subheading" v-lang.describe.app/>
+                    <h3 class="display-3">{{ $t("title.welcome") }}</h3>
+                    <span class="subheading">{{ $t("describe.app") }}</span>
                     <v-divider class="my-3"/>
-                    <div class="title mb-3" v-lang.message.app.enjoy/>
+                    <div class="title mb-3">{{ $t("message.app.enjoy") }}</div>
                 </v-flex>
             </v-layout>
         </v-container>
